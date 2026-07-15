@@ -1,4 +1,5 @@
 const navItems = ['About', 'Skills', 'Projects', 'Contact'];
+const interests = ['Software Development', 'Artificial Intelligence', 'Machine Learning', 'Problem Solving'];
 
 function App() {
   return (
@@ -45,11 +46,28 @@ function App() {
           </div>
 
           <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/30">
-            <div className="mb-6 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600" />
+            <div className="mb-6 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600" >
+                <img src="./muhaz_photo.jpg" alt="Abdul Rahiman Muhaz" className="h-full w-full rounded-full object-cover" />
+            </div>
             <h2 className="text-2xl font-semibold">About Me</h2>
             <p className="mt-3 text-sm leading-7 text-slate-400">
               I enjoy learning new technologies, building practical projects, and improving my problem-solving skills. I am eager to learn, adapt, and contribute to innovative and impactful solutions.
             </p>
+          </div>
+        </section>
+
+        <section id="about" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">About</p>
+          <h2 className="mt-4 text-3xl font-semibold text-white">A curious learner building practical software</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+            I am Abdul Rahiman Muhaz, a B.Tech Computer Science and Engineering student who enjoys solving real-world problems through technology. I am constantly learning new tools and concepts, and I want to grow into a strong developer who can build meaningful products.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {interests.map((interest) => (
+              <span key={interest} className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm text-slate-200">
+                {interest}
+              </span>
+            ))}
           </div>
         </section>
       </main>
