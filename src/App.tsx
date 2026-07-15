@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8">
-        <a href="#home" className="text-xl font-semibold tracking-wide text-cyan-400">
+        <a href="#home" className="text-4xl font-semibold tracking-wide text-cyan-400">
           Abdul Rahiman Muhaz
         </a>
         <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
@@ -125,7 +125,7 @@ function App() {
         <section id="about" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">About</p>
           <h2 className="mt-4 text-3xl font-semibold text-white">A curious learner building practical software</h2>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+          <p className="mt-4 text-lg leading-8 text-slate-300">
             I am Abdul Rahiman Muhaz, a B.Tech Computer Science and Engineering student who enjoys solving real-world problems through technology. I am constantly learning new tools and concepts, and I want to grow into a strong developer who can build meaningful products.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -149,7 +149,7 @@ function App() {
         <section id="skills" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Skills</p>
           <h2 className="mt-4 text-3xl font-semibold text-white">Foundational skills I am building with</h2>
-          <div className="mt-8 flex flex-col gap-4">
+          <div className="mt-8 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {skills.map((skill) => (
               <div key={skill.name} className="rounded-2xl border border-slate-700 bg-slate-950/70 p-5">
                 <h3 className="text-lg font-semibold text-cyan-400">{skill.name}</h3>
@@ -162,7 +162,7 @@ function App() {
         <section id="projects" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Projects</p>
           <h2 className="mt-4 text-3xl font-semibold text-white">Projects that reflect my learning journey</h2>
-          <div className="mt-8 flex flex-col gap-6">
+          <div className="mt-8 grid gap-6 grid-cols-1 lg:grid-cols-3">
             {projects.map((project) => (
               <article key={project.title} className="rounded-2xl border border-slate-700 bg-slate-950/70 p-6">
                 <h3 className="text-xl font-semibold text-white">{project.title}</h3>
