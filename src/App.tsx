@@ -127,6 +127,40 @@ function App() {
             ))}
           </div>
         </section>
+
+        <section id="contact" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Contact</p>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Let&apos;s connect</h2>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-lg leading-8 text-slate-300">
+                I am always open to learning, collaborating, and discussing new ideas. Feel free to reach out if you want to connect or discuss a project.
+              </p>
+              <div className="mt-6 space-y-3 text-sm text-slate-400">
+                <p>Email: abdulrahimanmuhaz@example.com</p>
+                <p>Location: India</p>
+              </div>
+            </div>
+
+            <form className="space-y-4 rounded-2xl border border-slate-700 bg-slate-950/70 p-6">
+              <div>
+                <label className="mb-2 block text-sm text-slate-300" htmlFor="name">Name</label>
+                <input id="name" className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-cyan-400" placeholder="Your name" />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-slate-300" htmlFor="email">Email</label>
+                <input id="email" type="email" className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-cyan-400" placeholder="Your email" />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-slate-300" htmlFor="message">Message</label>
+                <textarea id="message" rows={4} className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-cyan-400" placeholder="Write your message" />
+              </div>
+              <button type="button" className="rounded-full bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </section>
       </main>
     </div>
   );
