@@ -1,5 +1,29 @@
 const navItems = ['About', 'Skills', 'Projects', 'Contact'];
 const interests = ['Software Development', 'Artificial Intelligence', 'Machine Learning', 'Problem Solving'];
+const skills = [
+  { name: 'C', level: 'Foundational knowledge' },
+  { name: 'Python', level: 'Basic programming skills' },
+  { name: 'Git and GitHub', level: 'Version control basics' },
+  { name: 'HTML', level: 'Structure and content basics' },
+  { name: 'CSS', level: 'Styling and layout basics' },
+];
+const projects = [
+  {
+    title: 'Portfolio Website',
+    description: 'A personal portfolio built with React, TypeScript, and Tailwind CSS.',
+    tech: ['React', 'TypeScript', 'Tailwind'],
+  },
+  {
+    title: 'Student Task Manager',
+    description: 'A simple task planner for organizing daily college work and assignments.',
+    tech: ['Python', 'HTML', 'CSS'],
+  },
+  {
+    title: 'Mini Calculator',
+    description: 'A beginner-friendly calculator project built to improve core programming fundamentals.',
+    tech: ['C', 'Logic', 'Problem Solving'],
+  },
+];
 
 function App() {
   return (
@@ -46,8 +70,8 @@ function App() {
           </div>
 
           <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/30">
-            <div className="mb-6 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600" >
-                <img src="./muhaz_photo.jpg" alt="Abdul Rahiman Muhaz" className="h-full w-full rounded-full object-cover" />
+            <div className="mb-6 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 p-1">
+                <img src="./muhaz_photo.jpg" className="h-full w-full rounded-full object-cover" />
             </div>
             <h2 className="text-2xl font-semibold">About Me</h2>
             <p className="mt-3 text-sm leading-7 text-slate-400">
@@ -67,6 +91,39 @@ function App() {
               <span key={interest} className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm text-slate-200">
                 {interest}
               </span>
+            ))}
+          </div>
+        </section>
+
+        <section id="skills" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Skills</p>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Foundational skills I am building with</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {skills.map((skill) => (
+              <div key={skill.name} className="rounded-2xl border border-slate-700 bg-slate-950/70 p-5">
+                <h3 className="text-lg font-semibold text-cyan-400">{skill.name}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{skill.level}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="projects" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Projects</p>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Projects that reflect my learning journey</h2>
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {projects.map((project) => (
+              <article key={project.title} className="rounded-2xl border border-slate-700 bg-slate-950/70 p-6">
+                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{project.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-300">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </section>
