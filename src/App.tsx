@@ -27,7 +27,8 @@ const projects = [
 const contactLinks = [
   {
     label: 'Email',
-    href: 'mailto:muhazabdulrahiman2@gmail.com',
+    href: 'mailto:armuhaz999@gmail.com',
+    external: false,
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
         <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" />
@@ -37,6 +38,7 @@ const contactLinks = [
   {
     label: 'WhatsApp',
     href: 'https://wa.me/9197467760',
+    external: true,
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
         <path d="M12 2C6.49 2 2 6.49 2 12c0 2.14.7 4.15 1.9 5.77L2 22l4.35-1.14A9.94 9.94 0 0 0 12 22c5.51 0 10-4.49 10-10S17.51 2 12 2Zm0 18c-1.68 0-3.27-.47-4.63-1.28l-.33-.2-2.58.68.68-2.5-.21-.34A8 8 0 1 1 20 12c0 2.2-.88 4.25-2.33 5.73-.95.96-2.19 1.64-3.66 1.95l-1.24.29Z" />
@@ -45,7 +47,7 @@ const contactLinks = [
   },
   {
     label: 'Instagram',
-    href: 'https://instagram.com',
+    href: 'https://instagram.com/',
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
         <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm5.25-2.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z" />
@@ -131,6 +133,15 @@ function App() {
               </span>
             ))}
           </div>
+          <div className="mt-8">
+            <a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center rounded-full bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400"
+            >
+              Download Resume
+            </a>
+          </div>
         </section>
 
         <section id="skills" className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20">
@@ -179,8 +190,7 @@ function App() {
                   <a
                     key={link.label}
                     href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
+                    {...(link.external ? { target: '_blank', rel: 'noreferrer' } : {})}
                     className="flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950/70 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-400 hover:text-cyan-400"
                   >
                     <span className="text-cyan-400">{link.icon}</span>
