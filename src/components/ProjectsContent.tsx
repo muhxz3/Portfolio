@@ -1,24 +1,45 @@
-import { projects } from '../data/content';
+import type { GitHubProject } from '../types/github';
+import ProjectCarousel from './ProjectCarousel';
 
-export default function ProjectsContent() {
+interface ProjectsContentProps {
+  repos: GitHubProject[];
+  loading: boolean;
+  error: string | null;
+  profileUrl: string | null;
+}
+
+export default function ProjectsContent({ repos, loading, error, profileUrl }: ProjectsContentProps) {
   return (
     <>
-      <h2 className="mt-4 text-3xl font-semibold text-white">Projects that reflect my learning journey</h2>
-      <div className="mt-8 grid gap-6 grid-cols-1 lg:grid-cols-3">
-        {projects.map((project) => (
-          <article key={project.title} className="rounded-2xl border border-slate-700 bg-slate-950/70 p-6">
-            <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-300">{project.description}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <span key={tech} className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-300">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
+      <h2 className="mt-4 text-3xl font-semibold text-white">Projects from my GitHub</h2>
+      <p className="mt-2 text-sm text-slate-400">
+        Live repositories pulled from my GitHub account.
+      </p>
+
+      {loading && (
+        <div className="mt-8 animate-pulse space-y-4">
+          <div className="h-48 rounded-2xl border border-slate-700 bg-slate-950/70" />
+          <div className="mx-auto h-2.5 w-24 rounded-full bg-slate-700" />
+        </div>
+      )}
+
+      {!loading && error && (
+        <div className="mt-8 rounded-2xl border border-red-500/30 bg-red-500/10 p-6">
+          <p className="text-sm text-red-300">{error}</p>
+          {profileUrl && (
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex text-sm font-medium text-cyan-400 transition hover:text-cyan-300"
+            >
+              View my GitHub profile →
+            </a>
+          )}
+        </div>
+      )}
+
+      {!loading && !error && <ProjectCarousel repos={repos} />}
     </>
   );
 }

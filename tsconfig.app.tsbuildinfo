@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts"],"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/aboutcontent.tsx","./src/components/contactcontent.tsx","./src/components/projectcarousel.tsx","./src/components/projectscontent.tsx","./src/components/skillscontent.tsx","./src/data/content.tsx","./src/hooks/usegithubrepos.ts","./src/services/github.ts","./src/types/github.ts","./src/utils/deriveskills.ts"],"version":"5.9.3"}

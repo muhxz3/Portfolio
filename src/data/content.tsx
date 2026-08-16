@@ -1,31 +1,5 @@
 export const interests = ['Software Development', 'Artificial Intelligence', 'Machine Learning', 'Problem Solving'];
 
-export const skills = [
-  { name: 'C', level: 'Foundational knowledge' },
-  { name: 'Python', level: 'Basic programming skills' },
-  { name: 'Git and GitHub', level: 'Version control basics' },
-  { name: 'HTML', level: 'Structure and content basics' },
-  { name: 'CSS', level: 'Styling and layout basics' },
-];
-
-export const projects = [
-  {
-    title: 'Portfolio Website',
-    description: 'A personal portfolio built with React, TypeScript, and Tailwind CSS.',
-    tech: ['React', 'TypeScript', 'Tailwind'],
-  },
-  {
-    title: 'Student Task Manager',
-    description: 'A simple task planner for organizing daily college work and assignments.',
-    tech: ['Python', 'HTML', 'CSS'],
-  },
-  {
-    title: 'Mini Calculator',
-    description: 'A beginner-friendly calculator project built to improve core programming fundamentals.',
-    tech: ['C', 'Logic', 'Problem Solving'],
-  },
-];
-
 export const contactLinks = [
   {
     label: 'Email',

@@ -4,11 +4,15 @@ import AboutContent from './components/AboutContent';
 import SkillsContent from './components/SkillsContent';
 import ProjectsContent from './components/ProjectsContent';
 import ContactContent from './components/ContactContent';
-const navItems = ['About', 'Skills', 'Projects', 'Contact'];
+import { useGitHubRepos } from './hooks/useGitHubRepos';
+import { deriveSkillsFromRepos } from './utils/deriveSkills';
+const navItems = ['About', 'Projects', 'Skills', 'Contact'];
 
 function App() {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
+  const { repos, loading, error, profileUrl } = useGitHubRepos();
+  const skills = deriveSkillsFromRepos(repos);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -105,23 +109,23 @@ function App() {
         </section>
 
         <section
-          id="skills"
-          data-section-id="skills"
-          ref={(el) => (sectionRefs.current.skills = el)}
-          className={`rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20 transition duration-700 ease-out will-change-transform ${revealClass('skills')}`}
-        >
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Skills</p>
-          <SkillsContent />
-        </section>
-
-        <section
           id="projects"
           data-section-id="projects"
           ref={(el) => (sectionRefs.current.projects = el)}
           className={`rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20 transition duration-700 ease-out will-change-transform ${revealClass('projects')}`}
         >
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Projects</p>
-          <ProjectsContent />
+          <ProjectsContent repos={repos} loading={loading} error={error} profileUrl={profileUrl} />
+        </section>
+
+        <section
+          id="skills"
+          data-section-id="skills"
+          ref={(el) => (sectionRefs.current.skills = el)}
+          className={`rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/20 transition duration-700 ease-out will-change-transform ${revealClass('skills')}`}
+        >
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">Skills</p>
+          <SkillsContent skills={skills} loading={loading} error={error} />
         </section>
 
         <section
@@ -134,6 +138,24 @@ function App() {
           <ContactContent />
         </section>
       </main>
+      <footer className="mx-auto max-w-6xl px-6 py-8 lg:px-8">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 flex items-center justify-between text-sm text-slate-400">
+          <div className="flex items-center gap-3">
+            <span className="text-cyan-400 text-lg">©</span>
+            <span>Copyright {new Date().getFullYear()} — Muhaz</span>
+          </div>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Back to top"
+            className="inline-flex items-center gap-2 rounded-full bg-slate-800/60 px-4 py-2 text-sm font-medium text-slate-100 hover:bg-slate-700 transition"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current text-cyan-400" aria-hidden>
+              <path d="M12 4l-8 8h5v8h6v-8h5z" />
+            </svg>
+            Back to top
+          </button>
+        </div>
+      </footer>
     </div>
   );
 }
