@@ -16,7 +16,7 @@ export default function AboutContent() {
       </div>
       <div className="mt-8">
         <a
-          href="./src/components/Resume.pdf"
+          href="Resume.pdf"
           download
           className="inline-flex items-center rounded-full bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400"
         >
