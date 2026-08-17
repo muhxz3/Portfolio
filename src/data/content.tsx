@@ -13,7 +13,7 @@ export const contactLinks = [
   },
   {
     label: 'WhatsApp',
-    href: 'https://wa.me/9197467760',
+    href: 'https://wa.me/919567573576',
     external: true,
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
